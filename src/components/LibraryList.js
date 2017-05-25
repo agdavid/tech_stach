@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 class LibraryList extends Component {
   componentWillMount() {
+    // initialize data source for ListView
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
@@ -12,10 +13,17 @@ class LibraryList extends Component {
     this.dataSource = ds.cloneWithRows(this.props.libraries);
   }
 
+  // helper method to render each data item
+  renderRow() {
+
+  };
+
   render() {
     return (
+      // pass data source to ListView
       <ListView
         dataSource={this.dataSource}
+        renderRow={this.renderRow}
       />
     );
   }
