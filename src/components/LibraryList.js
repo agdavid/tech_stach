@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { ListView } from 'react-native';
 // connect helper gives component access to redux state in provider store
 import { connect } from 'react-redux';
 
 class LibraryList extends Component {
+  componentWillMount() {
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
+  }
+
   render() {
     console.log(this.props);
     return;
