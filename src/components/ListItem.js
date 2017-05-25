@@ -6,9 +6,9 @@ import * as actions from '../actions'; // import all functions in actions
 
 class ListItem extends Component {
   renderDescription() {
-    const { library, selectedLibraryId } = this.props;
+    const { library, expanded } = this.props;
 
-    if (library.id === selectedLibraryId) {
+    if (expanded) {
       return (
         <Text>{library.description}</Text>
       );
@@ -44,10 +44,12 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    selectedLibraryId: state.selectedLibraryId
-  };
+// first argument is app state
+// second argument is this.props of component
+const mapStateToProps = (state, ownProps) => {
+  // pre-calculate the props
+  const expanded = state.selectedLibraryId === ownProps.library.id; //returns true/false
+  return { expanded }; //now have this.props.expanded as true/false
 };
 
 // first argument is mapStateToProps to get access to state
