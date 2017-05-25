@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ListView } from 'react-native';
 // connect helper gives component access to redux state in provider store
 import { connect } from 'react-redux';
+import ListItem from './ListItem';
 
 class LibraryList extends Component {
   componentWillMount() {
@@ -15,7 +16,7 @@ class LibraryList extends Component {
 
   // helper method to render each data item
   renderRow() {
-
+    return <ListItem />;
   };
 
   render() {
