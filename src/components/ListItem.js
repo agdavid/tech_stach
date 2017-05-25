@@ -33,7 +33,13 @@ const styles = {
   }
 };
 
+const mapStateToProps = state => {
+  return {
+    selectedLibraryId: state.selectedLibraryId
+  };
+};
+
 // first argument is mapStateToProps to get access to state
 // second arguments binds action creators
 // passed into component as props
-export default connect(null, actions)(ListItem);
+export default connect(mapStateToProps, actions)(ListItem);
