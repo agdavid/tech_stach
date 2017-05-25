@@ -15,9 +15,9 @@ class LibraryList extends Component {
   }
 
   // helper method to render each data item
-  renderRow() {
-    return <ListItem />;
-  };
+  renderRow(library) {
+    return <ListItem library={library} />;
+  }
 
   render() {
     return (
